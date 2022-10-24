@@ -23,6 +23,10 @@
     <v-app-bar color="indigo" dark fixed app>
       <v-toolbar-nav-icon @click.stop="drawer = !drawer"></v-toolbar-nav-icon>
       <v-toolbar-title>Inicio</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn text v-bind:to="{name: 'AgregarPelicula'}">Agregar Pelicula</v-btn>
+      </v-toolbar-items>
     </v-app-bar>
     <v-main>
       <v-container fluid>

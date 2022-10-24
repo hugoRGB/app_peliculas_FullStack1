@@ -145,26 +145,5 @@
           </v-card-actions>
         </v-card>
       </v-flex>
-      <v-flex xs4>
-        <v-card>
-          <v-card-title primary-title>
-            <div>
-              <div class="headline">My Hero Academia: World Heroes Mission</div>
-                <span class="grey--text">2021 &middot; Acci&oacute;n/
-                  Aventura &middot; 1h 45m</span>
-            </div>
-          </v-card-title>
-          <v-card-text>
-            Deku es perseguido por la policía, acusado de asesinato en masa,
-            mientras que el resto de super héroes han de enfrentarse a un incidente que afecta
-            a todo el mundo. Tercera película de la serie anime My Hero Academia.
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn flat color="purple">Calificar Pel&iacute;cula</v-btn>
-            <v-spacer></v-spacer>
-          </v-card-actions>
-        </v-card>
-      </v-flex>
   </v-layout>
 </template>
