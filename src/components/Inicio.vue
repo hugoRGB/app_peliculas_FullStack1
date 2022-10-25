@@ -103,7 +103,7 @@
         <v-card>
           <v-card-title primary-title>
             <div>
-              <div class="headline">Fate Stay Night: Heaven's Feel I. Presage Flower</div>
+              <div class="headline">Fate/Stay Night: Heaven's Feel I. Presage Flower</div>
                 <span class="grey--text">2017 &middot; Fantas&iacute;a
                   /Acci&oacute;n &middot; 2h</span>
             </div>
