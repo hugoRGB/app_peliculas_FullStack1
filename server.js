@@ -9,23 +9,31 @@ const app = express();
 const router = express.Router();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
-app.use(cors());
 
-// Conectar con mongoDB
-mongoose.connect('mongodb://localhost/cinestack',  function() {
-    console.log('Conexión hecha a la base de datos');
+// Conectar con mongodb
+mongoose.connect('mongodb://localhost/cinestack', function(){
+    console.log('Conexión hecha a la base de datos.');
 })
-  .catch(err => {
-    console.error('Error iniiando la aplicación: ', err.stack);
+
+.catch(err => {
+    console.error('Error iniciando aplicación', err.stack);
     process.exit(1);
-  });
+});
 
-  router.get('/', function(req, res) {
-    res.json({mensaje: 'API Inicializada!'})
-  });
+// Incluir controladores
+fs.readdirSync('controladores').forEach ( function (archivo) {
+    if (archivo.substr(-3) == ".js") {
+        const ruta = require("./controladores/" + archivo);
+        ruta.controller(app);
+    }
+});
 
-  const puerto = process.env.API_PORT || 8081;
-  app.use('/', router);
-  app.listen(puerto, function() {
-    console.log(`api corriendo en https://localhost:${puerto}`);
-  });
+router.get('/', function (req, res) {
+    res.json({mensaje: '¡API inicializada!'});
+});
+
+const puerto = process.env.API_PORT || 8081;
+app.use('/', router);
+app.listen(puerto, function() {
+    console.log(`api corriendo en http://localhost:${puerto}`);
+});

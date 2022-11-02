@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <v-layout row wrap>
       <v-flex xs4>
         <v-card>
@@ -103,7 +103,7 @@
         <v-card>
           <v-card-title primary-title>
             <div>
-              <div class="headline">Fate/Stay Night: Heaven's Feel I. Presage Flower</div>
+              <div class="headline">Fate Stay Night: Heaven's Feel I. Presage Flower</div>
                 <span class="grey--text">2017 &middot; Fantas&iacute;a
                   /Acci&oacute;n &middot; 2h</span>
             </div>
@@ -146,4 +146,50 @@
         </v-card>
       </v-flex>
   </v-layout>
+</template> -->
+<template>
+  <v-layout row wrap>
+    <v-flex xs4 v-for="pelicula in peliculas" :key="pelicula._id">
+      <v-card>
+        <v-card-title primary-title>
+          <div>
+            <div class="headline">
+              <v-btn text v-bind:to="`/peliculas/${pelicula._id}`">
+              </v-btn>
+            </div>
+            <span class="grey--text">{{pelicula.anho_pub}} &middot;
+              {{pelicula.genero}}</span>
+          </div>
+        </v-card-title>
+        <v-card-text>{{pelicula.descripcion}}</v-card-text>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      peliculas: [],
+    };
+  },
+  mounted() {
+    this.obtenerPeliculas();
+  },
+  methods: {
+    async obtenerPeliculas() {
+      return axios({
+        method: 'get',
+        url: 'http://localhost:8081/peliculas',
+      })
+        .then((respuesta) => {
+          this.peliculas = respuesta.data.peliculas;
+        })
+        .catch(() => {});
+    },
+  },
+};
+</script>

@@ -7,16 +7,16 @@ import AgregarPelicula from '@/components/AgregarPelicula';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  mode: 'history', // Para quitar el # de los links
   routes: [
     {
       path: '/',
-      name: 'inicio',
+      name: 'Inicio',
       component: Inicio,
     },
     {
       path: '/contacto',
-      name: 'contacto',
+      name: 'Contacto',
       component: Contacto,
     },
     {
